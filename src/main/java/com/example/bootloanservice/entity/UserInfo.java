@@ -14,9 +14,9 @@ public class UserInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long user_id;
-    private String usr_key;
-    private String usr_reg_num;
-    private String usr_nm;
-    private Long usr_icm_amt;
+    private String userKey;
+    private String userRegistrationNumber;
+    private String userName;
+    private Long userIncomeAmount;
 
 }
