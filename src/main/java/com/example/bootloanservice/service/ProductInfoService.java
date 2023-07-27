@@ -15,14 +15,7 @@ public class ProductInfoService {
 
     @Transactional
     public CreateProductInfoDTO.Response createProductInfo(CreateProductInfoDTO.Request createRequest) {
-        return CreateProductInfoDTO.Response.from(productInfoRepository.save(ProductInfo.builder()
-                .productId(createRequest.getProductId())
-                .organizationCode(createRequest.getOrganizationCode())
-                .productCode(createRequest.getProductCode())
-                .productName(createRequest.getProductName())
-                .productMinimumInterest(createRequest.getProductMinimumInterest())
-                .productMaximumInterest(createRequest.getProductMaximumInterest())
-                .build()));
+        return CreateProductInfoDTO.Response.from(productInfoRepository.save(createRequest.toEntity()));
     }
 
 }

@@ -17,17 +17,16 @@ public class CreateProductInfoDTO {
         private Double productMinimumInterest;
         private Double productMaximumInterest;
 
-        public static Request from(ProductInfo productInfo) {
-            return Request.builder()
-                    .productId(productInfo.getProductId())
-                    .organizationCode(productInfo.getOrganizationCode())
-                    .productCode(productInfo.getProductCode())
-                    .productName(productInfo.getProductName())
-                    .productMinimumInterest(productInfo.getProductMinimumInterest())
-                    .productMaximumInterest(productInfo.getProductMaximumInterest())
+        public ProductInfo toEntity() {
+            return ProductInfo.builder()
+                    .productId(this.productId)
+                    .organizationCode(this.organizationCode)
+                    .productCode(this.productCode)
+                    .productName(this.productName)
+                    .productMinimumInterest(this.productMinimumInterest)
+                    .productMaximumInterest(this.productMaximumInterest)
                     .build();
         }
-
     }
 
     @Getter
