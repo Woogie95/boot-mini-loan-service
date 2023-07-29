@@ -10,7 +10,6 @@ public class CreateProductInfoDTO {
     @Builder
     public static class Request {
 
-        private Long productId;
         private String organizationCode;
         private String productCode;
         private String productName;
@@ -19,7 +18,6 @@ public class CreateProductInfoDTO {
 
         public ProductInfo toEntity() {
             return ProductInfo.builder()
-                    .productId(this.productId)
                     .organizationCode(this.organizationCode)
                     .productCode(this.productCode)
                     .productName(this.productName)

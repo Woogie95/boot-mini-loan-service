@@ -18,15 +18,6 @@ public class UpdateProductInfoDTO {
         private Double productMinimumInterest;
         private Double productMaximumInterest;
 
-        public ProductInfo toEntity() {
-            return ProductInfo.builder()
-                    .organizationCode(this.organizationCode)
-                    .productCode(this.productCode)
-                    .productName(this.productName)
-                    .productMinimumInterest(this.productMinimumInterest)
-                    .productMaximumInterest(this.productMaximumInterest)
-                    .build();
-        }
     }
 
     @Getter
