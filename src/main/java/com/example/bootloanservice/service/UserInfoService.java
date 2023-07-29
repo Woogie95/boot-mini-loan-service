@@ -5,6 +5,7 @@ import com.example.bootloanservice.dto.CreateUserInfoDTO;
 import com.example.bootloanservice.entity.UserInfo;
 import com.example.bootloanservice.repository.UserInfoRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -28,4 +29,7 @@ public class UserInfoService {
         return CreateUserInfoDTO.Response.from(userInfo).getUserKey();
     }
 
+    public ResponseEntity<?> findByUserKey(String userKey) {
+
+    }
 }

@@ -33,19 +33,12 @@ public class CreateUserInfoDTO {
     @AllArgsConstructor
     @Builder
     public static class Response {
-        private Long id;
+
         private String userKey;
-        private String username;
-        private String userRegistrationNumber;
-        private Long userIncomeAmount;
 
         public static Response from(UserInfo userInfo) {
             return new Response(
-                    userInfo.getUserId(),
-                    userInfo.getUserKey(),
-                    userInfo.getUsername(),
-                    userInfo.getUserRegistrationNumber(),
-                    userInfo.getUserIncomeAmount());
+                    userInfo.getUserKey());
         }
     }
 

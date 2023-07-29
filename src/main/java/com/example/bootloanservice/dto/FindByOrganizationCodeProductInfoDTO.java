@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class FindByOrganizationCodeProductInfoDTO {
+
     private String organizationCode;
     private String productCode;
     private String productName;
