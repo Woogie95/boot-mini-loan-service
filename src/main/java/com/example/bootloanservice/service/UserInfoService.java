@@ -3,6 +3,7 @@ package com.example.bootloanservice.service;
 import com.example.bootloanservice.config.UniqueKey;
 import com.example.bootloanservice.dto.CreateUserInfoDTO;
 import com.example.bootloanservice.dto.FindByOrganizationCodeProductInfoDTO;
+import com.example.bootloanservice.dto.FindByUserKeyUserInfoDTO;
 import com.example.bootloanservice.entity.ProductInfo;
 import com.example.bootloanservice.entity.UserInfo;
 import com.example.bootloanservice.repository.UserInfoRepository;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -37,15 +39,11 @@ public class UserInfoService {
     }
 
     @Transactional(readOnly = true)
-    public ResponseEntity<?> findByUserKey(String userKey) {
+    public FindByUserKeyUserInfoDTO findByUserKey(String userKey) {
+        Optional<UserInfo> userInfoOptional = userInfoRepository.findByUserKey(userKey);
+        UserInfo userInfo = userInfoOptional.orElseThrow(() -> new RuntimeException("해당하는 키 값이 없습니다."));
 
+        return FindByUserKeyUserInfoDTO.from(userInfo);
     }
+
 }
-    @Transactional(readOnly = true)
-    public List<FindByOrganizationCodeProductInfoDTO> findByOrganizationCode(String organizationCode) {
-        List<ProductInfo> productInfos = productInfoRepository.findByOrganizationCode(organizationCode);
-
-        return productInfos.stream()
-                .map(FindByOrganizationCodeProductInfoDTO::from)
-                .collect(Collectors.toList());
-    }
