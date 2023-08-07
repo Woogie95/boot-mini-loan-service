@@ -3,6 +3,10 @@ package com.example.bootloanservice.dto;
 import com.example.bootloanservice.entity.ProductInfo;
 import lombok.*;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 public class CreateProductInfoDTO {
 
     @Getter
@@ -10,10 +14,15 @@ public class CreateProductInfoDTO {
     @Builder
     public static class Request {
 
+        @NotNull(message = "기관 코드를 입력해주세요.")
         private String organizationCode;
+        @NotNull(message = "상품 번호를 입력해주세요.")
         private String productCode;
+        @NotNull(message = "상품 이름을 입력해주세요.")
         private String productName;
+        @Min(1)
         private Double productMinimumInterest;
+        @Max(10)
         private Double productMaximumInterest;
 
         public ProductInfo toEntity() {

@@ -4,6 +4,7 @@ import com.example.bootloanservice.dto.CreateUserInfoDTO;
 import com.example.bootloanservice.dto.FindByUserKeyUserInfoDTO;
 import com.example.bootloanservice.service.UserInfoService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
